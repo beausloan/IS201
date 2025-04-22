@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Know Your Stocks Game</title>
+    <link rel="stylesheet" href="css/scratch.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="masthead" style="background-image: url('assets/The Street.jpg');">
+        <div class="container">
+            <div class="page-heading blur-box">
+                <h1 class="primary-text">📘 Know Your Stocks</h1>
+                <p class="subheading subtle-text">Test your knowledge about the companies I invest in!</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Game Section -->
+    <div class="div-portfolio">
+        <p>Match each company to its description. Learn more about my investments and test your knowledge!</p>
+        <div id="quiz-box">
+            <p id="question"></p>
+            <div id="choices" class="game-buttons"></div>
+            <p id="quiz-feedback"></p>
+            <p>Score: <span id="quiz-score">0</span></p>
+        </div>
+    </div>
+
+    <!-- Back to Home Button -->
+    <div class="text-center">
+        <a href="index.html" class="btn">Back to Home</a>
+    </div>
+
+    <!-- Game Script -->
+    <script>
+        const quizData = [
+            {
+                company: "Tesla",
+                question: "Which company is a pioneer in electric vehicles and led by Elon Musk?",
+                choices: ["Snowflake", "Tesla", "Hims & Hers"],
+                correct: "Tesla"
+            },
+            {
+                company: "Celsius",
+                question: "Which company makes fitness energy drinks and markets itself as a healthy alternative to traditional sodas?",
+                choices: ["Celsius", "Dutch Bros", "Shopify"],
+                correct: "Celsius"
+            },
+            {
+                company: "Dutch Bros",
+                question: "Which company is a growing coffee chain that started in Oregon and competes with Starbucks?",
+                choices: ["Upstart", "Dutch Bros", "PayPal"],
+                correct: "Dutch Bros"
+            },
+            {
+                company: "Shopify",
+                question: "Which company offers an e-commerce platform for small and medium businesses?",
+                choices: ["Tesla", "Shopify", "Kyndryl"],
+                correct: "Shopify"
+            },
+            {
+                company: "Upstart",
+                question: "Which fintech company uses AI to make credit and lending decisions?",
+                choices: ["Upstart", "Hims & Hers", "Celsius"],
+                correct: "Upstart"
+            },
+            {
+                company: "Palo Alto Networks",
+                question: "Which company is known for its cybersecurity platforms and serves enterprise clients?",
+                choices: ["Palo Alto Networks", "Snowflake", "Shopify"],
+                correct: "Palo Alto Networks"
+            },
+            {
+                company: "Snowflake",
+                question: "Which company provides a cloud-based data warehousing platform used for big data analytics?",
+                choices: ["Tesla", "Upstart", "Snowflake"],
+                correct: "Snowflake"
+            },
+            {
+                company: "Hims & Hers",
+                question: "Which company offers telehealth services and wellness products for hair, skin, and sexual health?",
+                choices: ["PayPal", "Hims & Hers", "Celsius"],
+                correct: "Hims & Hers"
+            },
+            {
+                company: "Kyndryl",
+                question: "Which company was spun off from IBM and focuses on IT infrastructure services?",
+                choices: ["Kyndryl", "Dutch Bros", "Palo Alto Networks"],
+                correct: "Kyndryl"
+            },
+            {
+                company: "The Trade Desk",
+                question: "Which company is known for programmatic digital advertising and media buying?",
+                choices: ["Snowflake", "The Trade Desk", "Shopify"],
+                correct: "The Trade Desk"
+            },
+            {
+                company: "PayPal",
+                question: "Which digital payments company owns Venmo and offers online checkout services?",
+                choices: ["Upstart", "Tesla", "PayPal"],
+                correct: "PayPal"
+            },
+            {
+                company: "Maplebear (Instacart)",
+                question: "Which company operates as Instacart, a grocery delivery and pickup platform?",
+                choices: ["Maplebear", "Dutch Bros", "Snowflake"],
+                correct: "Maplebear"
+            },
+            {
+                company: "TQQQ",
+                question: "Which investment product is a leveraged ETF that aims to triple the daily performance of the Nasdaq-100?",
+                choices: ["TQQQ", "Shopify", "Upstart"],
+                correct: "TQQQ"
+            }
+        ];
+
+        let quizScore = 0;
+        let currentQuestion = 0;
+
+        function renderQuiz() {
+            const q = quizData[currentQuestion];
+            document.getElementById("question").textContent = q.question;
+            const choicesDiv = document.getElementById("choices");
+            choicesDiv.innerHTML = "";
+            document.getElementById("quiz-feedback").textContent = "";
+
+            q.choices.forEach(choice => {
+                const btn = document.createElement("button");
+                btn.textContent = choice;
+                btn.className = "stock-btn";
+                btn.onclick = () => {
+                    if (choice === q.correct) {
+                        quizScore++;
+                        document.getElementById("quiz-feedback").textContent = "✅ Correct!";
+                    } else {
+                        document.getElementById("quiz-feedback").textContent = `❌ Incorrect. The correct answer was "${q.correct}".`;
+                    }
+                    document.getElementById("quiz-score").textContent = quizScore;
+                    currentQuestion = (currentQuestion + 1) % quizData.length;
+                    setTimeout(renderQuiz, 1600);
+                };
+                choicesDiv.appendChild(btn);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", renderQuiz);
+    </script>
+</body>
+<div class="text-center" style="margin-top: 1rem;">
+    <a href="scratch.html" class="btn">Back to Scratch Page</a>
+</div>
+
+</html>

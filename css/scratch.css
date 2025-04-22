@@ -1,0 +1,105 @@
+/* Base Styling */
+body {
+    background-color: #2c2c2c; /* darker grey */
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff; /* white font */
+    margin: 0;
+}
+
+/* Typography */
+h1, h2 {
+    font-family: 'Lora', serif;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.primary-text {
+    color: #000000; /* black instead of blue */
+}
+
+.success-text {
+    color: #ff6b6b; /* light red */
+    font-weight: bold;
+}
+
+.subtle-text {
+    color: #cccccc;
+}
+
+/* Header Background */
+.masthead {
+    background-image: url("../assets/The Street.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 6rem 2rem;
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Section Styling */
+.div-hero {
+    background-color: #3a3a3a;
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 2px solid #555;
+}
+
+.div-portfolio {
+    background-color: #444;
+    padding: 2rem;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.div-video {
+    background-color: #444;
+    padding: 2rem;
+    margin: 2rem auto;
+    text-align: center;
+    border-radius: 8px;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.07);
+}
+
+/* Button Styling */
+.btn {
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    background-color: #000000; /* black button */
+    color: white;
+    border-radius: 4px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #222222; /* slightly lighter black on hover */
+}
+
+/* Utility */
+.text-center {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Blurred transparent box behind header text */
+.blur-box {
+    background-color: rgba(240, 240, 240, 0.15); /* ultra light grey, 15% opacity */
+    backdrop-filter: blur(8px);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+}
+
